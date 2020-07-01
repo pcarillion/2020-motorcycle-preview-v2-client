@@ -32,7 +32,6 @@ export default function Collection() {
               <h2>
                 {b.brand} {b.name}
               </h2>
-              <hr />
               <h3>
                 {b.engine}cc {b.type}
               </h3>
