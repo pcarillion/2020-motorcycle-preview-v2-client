@@ -36,7 +36,7 @@ export default function Collection() {
                 {b.engine}cc {b.type}
               </h3>
               <p>{b.price}€</p>
-              <Link to={`/one-bike-${b._id}`} className="see-more">
+              <Link to={`/bike-${b._id}`} className="see-more" id={b._id}>
                 See details
               </Link>
             </div>

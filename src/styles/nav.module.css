@@ -1,5 +1,5 @@
 .navbar {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to bottom, rgba(100, 100, 100, 0.6), rgba(0, 0, 0, 0));
     height: 70px;
     position: fixed;
     width: 100vw;
@@ -18,7 +18,7 @@
 .navbar li {
     list-style: none;
     color: white;
-    padding: 5px;
+    padding: 5px 20px;
     text-transform: uppercase;
     background: rgba(white, 0);
     line-height: 1.4;
@@ -35,11 +35,13 @@
 
 .navbar li:hover {
     background: rgba(white, 1);
-
     border: 1px solid;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
     /* text-shadow: 1px 1px 2px #427388;  */
+}
 
+.navbar a {
+    text-decoration: none;
 }

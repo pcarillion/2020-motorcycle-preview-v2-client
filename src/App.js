@@ -9,6 +9,7 @@ import MyBikes from "./pages/MyBikes";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Authentification from "./pages/Authentification";
+import SingleBike from './templates/SingleBike'
 
 import Test from '../src/pages/Test'
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/about" component={About} />
         <Route path="/authentification" component={Authentification} />
-
+        <Route path='/bike-:id' component={SingleBike} />
         <Route path="/test" component={Test}/>
       </Switch>
     </div>
