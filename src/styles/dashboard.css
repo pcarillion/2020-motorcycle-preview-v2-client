@@ -1,0 +1,72 @@
+.dashboard-div {
+    background-color: lightgray;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dashboard-div a {
+    color: black
+}
+
+.dashboard {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-createBtn {
+    width: 100px;
+    border: 1px solid black;
+    /* border-radius: 10%/50%; */
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    background-color: white;
+}
+
+.admin-createBtn:hover {
+    background-color: rgb(245, 37, 31);
+    cursor: pointer;
+    color: white;
+    border:rgb(245, 37, 31) 1px solid;
+}
+
+/* ADMIN TABLE */
+.adminTable {
+    border: 1px solid black;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 50px 0;
+}
+
+.tableTitle {
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+}
+
+.tableTitle th {
+    min-width: 110px;
+    max-width: 205px;
+    padding: 5px;
+}
+
+.admin-bikeRow:hover {
+    background-color: #f5251f;
+    border: rgb(245, 37, 31) 1px ;
+}
+
+.admin-bikeRow:hover a {
+    cursor: pointer;
+    color: white;
+}
+
+.adminTable tr {
+    height: 40px;
+    padding: 5px;
+}
