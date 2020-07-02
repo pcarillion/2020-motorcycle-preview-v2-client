@@ -26,7 +26,7 @@ function MyBikes() {
             <div className={`${styles.myBikesDiv} my-bikes-div`}>
                 {bikes.map((b, i) => (
                     <div  className="my-bike-container">
-                            <div className="my-bike-photo" style={{backgroundImage: `url(${b.image})`}}>
+                            <div className="my-bike-photo" style={{backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.1), rgba(10, 1, 8, 0.4)), url(${b.image})`}}>
                                 <Link to={`/bike-${b._id}`} id={b._id}>
                                     <h5>
                                         {b.brand} {b.name}
