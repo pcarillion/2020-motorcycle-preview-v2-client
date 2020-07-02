@@ -3,12 +3,15 @@ import React, { useState, useEffect }  from 'react'
 
 // plugins
 import {withRouter} from 'react-router-dom'
-import apiHandler from "../api/APIHandler";
 import { Link } from "react-router-dom";
 
 
 // css
 import './../styles/one-bike.css'
+
+// js
+import apiHandler from "../api/APIHandler";
+import SinglePicture from '../components/BikePic'
 
 const SingleBike = (props) => {
 
@@ -24,11 +27,24 @@ const SingleBike = (props) => {
         .catch((apiErr) => console.log(apiErr));
     }, []);
 
+
+    // fullscreen pic
+
+    const [isOpen, setPic] = useState(false)
+
+    const [photo, setPhoto] = useState("")
+
+    const togglePic = (photoLink) => {
+        setPhoto(photoLink)
+        setPic(isOPen => !isOpen)
+    }
+
+
     return (
         <div className="one-bike-div">
             <div className="one-bike-image">
                 <div className="one-bike-image-container">
-                    <img src={`${bike.image}`} alt="" srcset=""/>
+                    <img src={`${bike.image}`} alt="" srcset="" onClick={()=>togglePic(bike.image)}/>
                 </div>
             </div>
 
@@ -70,12 +86,14 @@ const SingleBike = (props) => {
                     <div className="gallery">
                         {bike.gallery && bike.gallery.map((pic, i) => {
                             return(
-                                <img src={pic} alt="" class="photo-in-the-gallery"/>
+                                <img src={pic} alt="" class="photo-in-the-gallery" onClick={()=>togglePic(pic)}/>
                             )
-                        })}}
+                        })}
                     </div>
                 </div>
             </div>
+            {isOpen && <button type="button" onClick={togglePic} className="close">X</button>}
+            {isOpen && <SinglePicture photo={photo}/>}
         </div>
     )
 }

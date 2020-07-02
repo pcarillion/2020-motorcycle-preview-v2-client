@@ -26,8 +26,8 @@
     height: 100%;
     z-index: 1;
     /* background-image: radial-gradient(rgba(10, 1, 8, 0.1), rgba(245, 246, 252, 1)); */
-
-}
+    cursor: pointer;
+}   
 
 .transition {
     width: 0;
@@ -104,6 +104,7 @@
     height: 70vh;
     /* width: auto; */
     margin: 2%;
+    cursor: pointer;
 }
 /* 
 .photo-in-gallery img {
@@ -128,3 +129,35 @@
 
 
 
+/* component bike pic */
+
+.fullscreen-pic{
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    background-color: white;
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen-pic img {
+    height: 95%;
+    width: auto;
+}
+
+.close {
+    z-index: 11;
+    position: fixed;
+    top: 5px;
+    left: 6px;
+    font-size: 3rem;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
