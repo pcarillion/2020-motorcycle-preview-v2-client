@@ -1,0 +1,43 @@
+.nav-with-filters {
+  border: 3px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collection-filters,
+.collection-sorting {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.collection-filters {
+  width: 50%;
+}
+
+.collection-sorting {
+  width: 30%;
+}
+
+.nav-with-filters input,
+.nav-with-filters select,
+.nav-with-filters button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  background-color: white;
+}
+
+.nav-with-filters input:hover,
+.nav-with-filters select:hover,
+.nav-with-filters button:hover {
+    border: 1px solid crimson;
+    box-shadow: 3px 3px 5px #ccc;
+    font-weight: bold;
+    outline: none;
+}
+
+.nav-with-filters button {
+  cursor: pointer;
+}

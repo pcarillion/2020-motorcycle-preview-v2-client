@@ -1,39 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "../styles/nav-collection.css";
 
-export default function NavCollection() {
-  const handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
+export default function NavCollection({
+  brands,
+  types,
+  engine,
+  clbkBrand,
+  clbkType,
+  clbkEngine,
+}) {
   return (
-    <div>
-      <form onChange={handleChange} onSubmit={handleSubmit} className="collection-filters">
-        <label htmlFor="brand">Brand</label>
-        <select name="brand">
-          <option value="yamaha">Yamaha</option>
-          <option value="kawasaki">Kawasaki</option>
-          <option value="ducati">Ducati</option>
+    <div className="nav-with-filters">
+      <form className="collection-filters">
+        {/* BRAND FILTER */}
+        <label htmlFor="brand">Brand </label>
+        <select name="brand" onChange={clbkBrand}>
+          <option selected value="all">
+            All brands
+          </option>
+          {brands.map((brand, i) => (
+            <option value={brand} key={i}>
+              {brand}
+            </option>
+          ))}
         </select>
-        <label htmlFor="engine">Engine</label>
-        <select name="engine">
-          <option value="small"> &lt;600 </option>
-          <option value="medium"> &lt;800 </option>
-          <option value="high"> &gt;1000 </option>
-        </select>
+
+        {/* TYPE FILTER */}
         <label htmlFor="type">Type</label>
-        <select name="type">
-          <option value="roadster">Roadster</option>
-          <option value="sportive">Sportive</option>
+        <select name="type" onChange={clbkType}>
+          <option selected value="all">
+            All types
+          </option>
+          {types.map((type, i) => (
+            <option value={type} key={i}>
+              {type}
+            </option>
+          ))}
         </select>
+
+        {/* ENGINE FILTER */}
+        <label htmlFor="engine">Engine (cc) </label>
+        <input
+          type="number"
+          name="engine"
+          step="100"
+          defaultValue={engine}
+          onChange={clbkEngine}
+        />
       </form>
+
+      {/* SORTING */}
       <div className="collection-sorting">
-          <button>Sort by brand</button>
-          <button>Sort by engine</button>
-          <button>Sort by type</button>
+        <button>Sort by brand</button>
+        <button>Sort by engine</button>
+        <button>Sort by type</button>
       </div>
     </div>
   );

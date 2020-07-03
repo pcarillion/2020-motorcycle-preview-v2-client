@@ -1,3 +1,8 @@
+.collection-page {
+  position: absolute;
+  top: 70px;
+}
+
 .all-bikes-container {
   display: flex;
   flex-direction: column;
