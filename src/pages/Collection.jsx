@@ -8,9 +8,10 @@ import BikeCollection from "../components/BikeCollection";
 export default function Collection() {
   const [bikes, setBikes] = useState([]);
   const [filteredBikes, setFilteredBikes] = useState([]);
+  const [sort, setSort] = useState();
 
-  const [typeFilter, setTypeFilter] = useState("");
-  const [brandFilter, setBrandFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("all");
+  const [brandFilter, setBrandFilter] = useState("all");
   const [engineFilter, setEngineFilter] = useState(1000);
 
   const types = [...new Set(bikes.map((b) => b.type))];
@@ -21,22 +22,22 @@ export default function Collection() {
       .get("/bikes/collection")
       .then((apiRes) => {
         setBikes(apiRes.data);
-        setFilteredBikes(apiRes.data)
+        setFilteredBikes(apiRes.data);
       })
       .catch((apiErr) => console.log(apiErr));
   }, []);
 
   // HANDLE FILTERS
   const filterByBrand = (array) => {
-    if (brandFilter === "all") return [...array];
-    return [...array].filter((b) => b.brand === brandFilter);
+    if (brandFilter === "all") return array;
+    return array.filter((b) => b.brand === brandFilter);
   };
   const filterByType = (array) => {
-    if (typeFilter === "all") return [...array];
-    return [...array].filter((b) => b.type === typeFilter);
+    if (typeFilter === "all") return array;
+    return array.filter((b) => b.type === typeFilter);
   };
   const filterByEngine = (array) => {
-    return [...array].filter((b) => b.engine <= engineFilter);
+    return array.filter((b) => b.engine <= engineFilter);
   };
 
   // HANDLE FILTER CHANGES
@@ -66,8 +67,31 @@ export default function Collection() {
     } else if (typeFilter === "all" && brandFilter !== "all") {
       setFilteredBikes(filterByBrand(filterByEngine(bikes)));
       console.log("ON: engine + brand");
+    } else if (brandFilter !== "all" && typeFilter !== "all") {
+      console.log("ON: engine + brand + type !!!");
+      setFilteredBikes(filterByBrand(filterByType(filterByEngine(bikes))));
     }
     console.log(filteredBikes);
+  };
+
+  // HANDLE SORTING
+  const handleSortChange = (e) => {
+    console.log(e.target.name);
+    if (e.target.name === "brand-sort") {
+      setFilteredBikes(
+        filteredBikes.sort((a, b) => a.brand.localeCompare(b.brand))
+      );
+    }
+    if (e.target.name === "type-sort") {
+      setFilteredBikes(
+        filteredBikes.sort((a, b) => a.type.localeCompare(b.type))
+      );
+    }
+    if (e.target.name === "engine-sort") {
+      setFilteredBikes(
+        filteredBikes.sort((a, b) => a.engine - b.engine)
+      );
+    }
   };
 
   return (
@@ -79,6 +103,7 @@ export default function Collection() {
         clbkBrand={handleBrandChange}
         clbkType={handleTypeChange}
         clbkEngine={handleEngineChange}
+        clbkSort={handleSortChange}
       />
       <h1>Collection page</h1>
       <BikeCollection bikes={filteredBikes} />
