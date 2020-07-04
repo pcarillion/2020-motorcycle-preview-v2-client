@@ -8,7 +8,7 @@ export default function NavCollection({
   clbkBrand,
   clbkType,
   clbkEngine,
-  clbkSort
+  clbkSort,
 }) {
   return (
     <div className="nav-with-filters">
@@ -52,9 +52,15 @@ export default function NavCollection({
 
       {/* SORTING */}
       <div className="collection-sorting">
-        <button onClick={clbkSort} name="brand-sort">Sort by brand</button>
-        <button onClick={clbkSort} name="engine-sort">Sort by engine</button>
-        <button onClick={clbkSort} name="type-sort">Sort by type</button>
+        <button onClick={clbkSort} name="brand-sort">
+          Sort by brand
+        </button>
+        <button onClick={clbkSort} name="engine-sort">
+          Sort by engine
+        </button>
+        <button onClick={clbkSort} name="type-sort">
+          Sort by type
+        </button>
       </div>
     </div>
   );
