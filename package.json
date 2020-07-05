@@ -10,6 +10,8 @@
     "babel-plugin-react-css-modules": "^5.2.6",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "react": "^16.13.1",
     "react-css-modules": "^4.7.11",
     "react-dom": "^16.13.1",

@@ -9,13 +9,15 @@ export const useAuth = () => {
   const { setCurrentUser, currentUser } = userContext;
 
   useEffect(() => {
-    APIHandler.get("/session/is-loggedin")
+    APIHandler.get("/auth/is-loggedin")
       .then(res => {
+        console.log("okay")
         setIsLoggedIn(true);
         setIsLoading(false);
         setCurrentUser(res.data.currentUser);
       })
       .catch(() => {
+        console.log("oh no")
         setCurrentUser(null);
         setIsLoggedIn(false);
         setIsLoading(false);

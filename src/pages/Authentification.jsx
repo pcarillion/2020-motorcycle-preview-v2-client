@@ -31,17 +31,30 @@ const Auth = (props) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    if (!signin) {
     try {
       const apiRes = await APIHandler.post("/auth/signup", user);
       console.log(apiRes)
+      // setCurrentUser(apiRes.data.currentUser);
+      props.history.push('/welcome')
+    } catch (err) { 
+      console.log(err)
+      console.error(err);
+      setError("this email already exists")
+      // setCurrentUser(null);
+      // setError("Les identifiants sont incorrects.")
+    }        
+  } else if (signin){
+    try {
+      const apiRes = await APIHandler.post("/auth/signin", user);
       setCurrentUser(apiRes.data.currentUser);
-    
       props.history.push('/mybikes')
     } catch (err) {   
       setCurrentUser(null);
-      setError("Les identifiants sont incorrects.")
+      setError("Email or password is not correct.")
     }
-  };
+  }
+};
   const handleChange = e => {
     setUser({...user, [e.target.name]: e.target.value });
   }
@@ -56,7 +69,7 @@ const Auth = (props) => {
                     {/* <label htmlFor="password">Password</label> */}
                     <input type="password" className="text-input" name="password" placeholder="Password" defaultValue="1234"/>
                 </div>
-
+                <p>{error}</p>
                 <button>Enter</button>
                 <p>No account yet? Please register <span className="span-onclick" onClick={()=>toggleMode()}>here</span></p>
             </form> : 
@@ -67,7 +80,7 @@ const Auth = (props) => {
                     {/* <label htmlFor="password">Password</label> */}
                     <input type="password" className="text-input" name="password" placeholder="Password" defaultValue="1234"/>
                 </div>
-
+                <p>{error}</p>
                 <button>Enter</button>
                 <p>Already have an account? You can log in <span className="span-onclick" onClick={()=>toggleMode()}>here</span></p>
             </form>}
