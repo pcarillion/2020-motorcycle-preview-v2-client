@@ -45,3 +45,26 @@
 .navbar a {
     text-decoration: none;
 }
+
+.navbar img {
+    margin-top: 20px;
+    height: 50px;
+    width: 50px;
+    transition: 0.3s linear;
+}
+
+.navbar img:hover {
+    transform: translateY(-5px);
+    transition: 0.3s linear;
+}
+
+.navbar li:first-child {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar li:first-child:hover {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}

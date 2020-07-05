@@ -7,12 +7,15 @@ const Nav = () => {
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navList}>
-        <Link to="/"><li>Home</li></Link>
+        {/* <Link to="/"><li>Home</li></Link> */}
+        <Link to="/"><li>
+          <img src="../../2020motorcyclepreviews.svg"/>
+        </li></Link>
         <Link to="/collection"><li>Collection</li></Link>
         <Link to="/mybikes"><li>My Bikes</li></Link>
         <Link to="/dashboard"><li>Dashboard</li></Link>
         <Link to='/about'><li>About</li></Link>
-        <Link to="/authentification"><li>Log in / Sign Up</li></Link>
+        <Link to="/authentification"><li>Log in | Sign Up</li></Link>
       </ul>
     </nav>
   );

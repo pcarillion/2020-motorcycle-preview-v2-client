@@ -10,6 +10,10 @@
     padding-bottom: 70px;
 }
 
+.auth-div h2 {
+    color: white;
+}
+
 .auth-div form {
     display: flex;
     flex-direction: column;
@@ -34,7 +38,7 @@
 .text-input {
     width: 100%;
     height: 2rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     border: none;
     padding: 5px 10px;
     font-weight: bold;
@@ -46,7 +50,6 @@
 .text-input:focus {
     outline: none;
 }
-
 
 .text-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
@@ -105,7 +108,43 @@
     left: calc(50vw - 45vh);
     width: 90vh;
     height: 90vh;
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: 5;
+}
 
+
+
+.span-onclick {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* greeting page */
+
+.greeting-div{
+    background-color: lightgray;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting-div > div {
+    width: 200px;
+    padding-top: 120px;
+    z-index: 6;
+}
+
+.greeting-div p {
+    
+    text-align: center;
+    font-weight: bold;
+}
+
+.greeting-div a  {
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
 }
