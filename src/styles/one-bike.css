@@ -161,3 +161,29 @@
     background-color: white;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 650px) {
+    .one-bike-image {
+        width: auto;
+        height: 50vh;
+    }
+
+    .one-bike-details > div, .one-bike-details table  {
+        width: 90%;
+    }
+
+    .photo-in-the-gallery {
+        height: 40vh;
+        width: auto;
+    }
+
+    .gallery {
+        height: fit-content
+    }
+
+    .fullscreen-pic img {
+        width: 95%;
+        height: auto;
+    }
+}

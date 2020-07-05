@@ -29,8 +29,8 @@ function App() {
         <Route path='/welcome' component={Greeting} />
         <Route path="/test" component={Test}/>
 
-        <ProtectedRoute path="/mybikes" component={MyBikes} />
-        <ProtectedRoute path="/dashboard" component={Dashboard} />
+        <Route path="/mybikes" component={MyBikes} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
     </div>
   );
