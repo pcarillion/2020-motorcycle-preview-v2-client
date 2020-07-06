@@ -27,6 +27,8 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+
     width: 100%;
     margin-top: 150px;
     z-index: 0;
@@ -71,4 +73,20 @@
 .pres-link {
     text-decoration: underline;
     color: black;
+}
+
+@media screen and (max-width: 650px) {
+    .pres-div {
+        width: 80vw;
+        height: fit-content;
+        padding-top: 10vh;
+        margin-bottom: 20vh;
+    }
+    .profile-picture{
+        height: 25vh;
+        width: 25vh;
+        left: 20vw;
+        top: -22.5vw;
+
+    }
 }
