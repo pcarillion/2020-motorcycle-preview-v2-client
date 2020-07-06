@@ -148,3 +148,29 @@
     color: black;
     text-decoration: underline;
 }
+
+
+@media screen and (max-width: 650px) {
+
+    .auth-div {
+        justify-content: center;
+    }
+
+    .auth-div h2 {
+        margin-bottom: 5vh;
+    }
+
+    .auth-div form {
+        width: 90vw;
+        height: 30vh;
+    }
+
+    .gear-svg {
+        top: 0;
+        left: 0;
+    }
+
+    .greeting-div > div {
+        padding-top: 32px;
+    }
+}
