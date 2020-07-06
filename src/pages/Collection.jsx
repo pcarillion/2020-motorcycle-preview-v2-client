@@ -9,6 +9,7 @@ export default function Collection() {
   const [bikes, setBikes] = useState([]);
   const [filteredBikes, setFilteredBikes] = useState([]);
 
+  const [A2Filter, setA2Filter] = useState(false);
   const [typeFilter, setTypeFilter] = useState("all");
   const [brandFilter, setBrandFilter] = useState("all");
   const [engineFilter, setEngineFilter] = useState(1000);
@@ -26,7 +27,9 @@ export default function Collection() {
       .catch((apiErr) => console.log(apiErr));
   }, []);
 
+  // ==============================
   // HANDLE BIKES FILTERING
+  // ==============================
   const filterByBrand = (array) => {
     if (brandFilter === "all") return array;
     return array.filter((b) => b.brand === brandFilter);
@@ -38,43 +41,101 @@ export default function Collection() {
   const filterByEngine = (array) => {
     return array.filter((b) => b.engine <= engineFilter);
   };
+  const filterByA2 = (array) => {
+    return array.filter((b) => b.A2 === A2Filter);
+  };
 
+  // ==============================
   // HANDLE FILTER CHANGES
+  // ==============================
   const handleBrandChange = (e) => {
-    console.log(e.target.name, e.target.value);
     setBrandFilter(e.target.value);
     updateSearch();
   };
   const handleTypeChange = (e) => {
-    console.log(e.target.name, e.target.value);
     setTypeFilter(e.target.value);
     updateSearch();
   };
   const handleEngineChange = (e) => {
-    console.log(e.target.name, e.target.value);
     setEngineFilter(e.target.value);
     updateSearch();
   };
-
-  const updateSearch = () => {
-    if (brandFilter === "all" && typeFilter === "all") {
-      setFilteredBikes(filterByEngine(bikes));
-      console.log("ON: engine");
-    } else if (brandFilter === "all" && typeFilter !== "all") {
-      setFilteredBikes(filterByType(filterByEngine(bikes)));
-      console.log("ON: engine + type");
-    } else if (typeFilter === "all" && brandFilter !== "all") {
-      setFilteredBikes(filterByBrand(filterByEngine(bikes)));
-      console.log("ON: engine + brand");
-    } else if (brandFilter !== "all" && typeFilter !== "all") {
-      console.log("ON: engine + brand + type !!!");
-      setFilteredBikes(filterByBrand(filterByType(filterByEngine(bikes))));
-    }
-    console.log(filteredBikes);
+  const handleA2Change = (e) => {
+    setA2Filter(e.target.checked);
+    updateSearch();
   };
 
+  // ==============================
+  // HANDLE GLOBAL SEARCH
+  // ==============================
+  // const updateSearch = () => {
+  //   console.log(brandFilter, typeFilter, engineFilter);
+  //   if (brandFilter === "all" && typeFilter === "all") {
+  //     setFilteredBikes(filterByEngine(bikes));
+  //     console.log("ON: engine", filteredBikes);
+  //   } else if (brandFilter === "all" && typeFilter !== "all") {
+  //     setFilteredBikes(filterByType(filterByEngine(bikes)));
+  //     console.log("ON: engine + type", filteredBikes);
+  //   } else if (typeFilter === "all" && brandFilter !== "all") {
+  //     setFilteredBikes(filterByBrand(filterByEngine(bikes)));
+  //     console.log("ON: engine + brand", filteredBikes);
+  //   } else if (brandFilter !== "all" && typeFilter !== "all") {
+  //     console.log("ON: engine + brand + type !!!", filteredBikes);
+  //     setFilteredBikes(filterByBrand(filterByType(filterByEngine(bikes))));
+  //   }
+  //   console.log(filteredBikes);
+  // };
+
+  // ==============================
+  // TEST TEST TEST TEST TEST
+  // ==============================
+  const updateSearch = () => {
+    switch (true) {
+      case A2Filter === true: // A2 Filter is active
+        switch (true) {
+          case brandFilter !== "all" && typeFilter !== "all":
+            setFilteredBikes(
+              filterByA2(filterByEngine(filterByBrand(filterByType(bikes))))
+            );
+            console.log("Filter by: ALL ");
+            break;
+          case brandFilter === "all" && typeFilter !== "all":
+            setFilteredBikes(filterByA2(filterByEngine(filterByType(bikes))));
+            console.log("Filter by: A2 ENGINE TYPE ");
+            break;
+          case brandFilter !== "all" && typeFilter === "all":
+            setFilteredBikes(filterByA2(filterByEngine(filterByBrand(bikes))));
+            console.log("Filter by: A2 ENGINE BRAND ");
+            break;
+          default:
+            setFilteredBikes(filterByA2(filterByEngine(bikes)));
+            console.log("Filter by: A2 ENGINE ");
+            break;
+        }
+        break;
+      case brandFilter !== "all" && typeFilter !== "all":
+        setFilteredBikes(filterByEngine(filterByBrand(filterByType(bikes))));
+        console.log("Filter by: ENGINE BRAND TYPE ");
+        break;
+      case brandFilter === "all" && typeFilter !== "all":
+        setFilteredBikes(filterByEngine(filterByType(bikes)));
+        console.log("Filter by: ENGINE TYPE ");
+        break;
+      case brandFilter !== "all" && typeFilter === "all":
+        setFilteredBikes(filterByEngine(filterByBrand(bikes)));
+        console.log("Filter by: ENGINE BRAND ");
+        break;
+      default:
+        setFilteredBikes(filterByEngine(bikes));
+        console.log("Filter by: ENGINE ");
+        break;
+    }
+  };
+
+  // ==============================
   // HANDLE SORTING
-  const handleSortChange = (e) => {
+  // ==============================
+  const handleSortChange = async (e) => {
     console.log(e.target.name);
     let sorted = [];
     if (e.target.name === "brand-sort") {
@@ -106,6 +167,7 @@ export default function Collection() {
         clbkBrand={handleBrandChange}
         clbkType={handleTypeChange}
         clbkEngine={handleEngineChange}
+        clbkA2={handleA2Change}
         clbkSort={handleSortChange}
       />
       <h1>Collection page</h1>

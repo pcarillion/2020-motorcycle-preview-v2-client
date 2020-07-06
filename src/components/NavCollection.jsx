@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/nav-collection.css";
 
 export default function NavCollection({
@@ -9,6 +9,7 @@ export default function NavCollection({
   clbkType,
   clbkEngine,
   clbkSort,
+  clbkA2,
 }) {
   return (
     <div className="nav-with-filters">
@@ -47,6 +48,14 @@ export default function NavCollection({
           step="100"
           defaultValue={engine}
           onChange={clbkEngine}
+        />
+
+        {/* a2 FILTER */}
+        <label htmlFor="a2">A2 </label>
+        <input
+          type="checkbox"
+          name="a2"
+          onChange={clbkA2}
         />
       </form>
 
