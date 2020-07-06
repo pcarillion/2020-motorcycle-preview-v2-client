@@ -8,7 +8,6 @@ import BikeCollection from "../components/BikeCollection";
 export default function Collection() {
   const [bikes, setBikes] = useState([]);
   const [filteredBikes, setFilteredBikes] = useState([]);
-  const [sort, setSort] = useState();
 
   const [typeFilter, setTypeFilter] = useState("all");
   const [brandFilter, setBrandFilter] = useState("all");
@@ -27,7 +26,7 @@ export default function Collection() {
       .catch((apiErr) => console.log(apiErr));
   }, []);
 
-  // HANDLE FILTERS
+  // HANDLE BIKES FILTERING
   const filterByBrand = (array) => {
     if (brandFilter === "all") return array;
     return array.filter((b) => b.brand === brandFilter);
@@ -77,21 +76,25 @@ export default function Collection() {
   // HANDLE SORTING
   const handleSortChange = (e) => {
     console.log(e.target.name);
+    let sorted = [];
     if (e.target.name === "brand-sort") {
-      setFilteredBikes(
-        filteredBikes.sort((a, b) => a.brand.localeCompare(b.brand))
+      sorted = [...filteredBikes].sort((a, b) =>
+        a.brand.localeCompare(b.brand)
       );
+      setFilteredBikes(sorted);
+      // filteredBikes.sort((a, b) => a.brand.localeCompare(b.brand))
     }
     if (e.target.name === "type-sort") {
-      setFilteredBikes(
-        filteredBikes.sort((a, b) => a.type.localeCompare(b.type))
+      sorted = [...filteredBikes].sort((a, b) =>
+        a.brand.localeCompare(b.brand)
       );
+      setFilteredBikes(sorted);
+      // filteredBikes.sort((a, b) => a.type.localeCompare(b.type))
     }
     if (e.target.name === "engine-sort") {
-      setFilteredBikes(
-        filteredBikes.sort((a, b) => a.engine - b.engine)
-      );
+      setFilteredBikes(filteredBikes.sort((a, b) => a.engine - b.engine));
     }
+    console.log(filteredBikes);
   };
 
   return (
