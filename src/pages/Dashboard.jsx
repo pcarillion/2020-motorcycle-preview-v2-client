@@ -35,11 +35,11 @@ const Dashboard = () => {
                     <tr>
                         <th>Brand</th>
                         <th>Model</th>
-                        <th>Type</th>
-                        <th>Engine</th>
-                        <th>Horsepower</th>
-                        <th>Available for A2</th>
-                        <th>Price</th>
+                        <th className="hide-in-mobile">Type</th>
+                        <th className="hide-in-mobile">Engine</th>
+                        <th className="hide-in-mobile">Horsepower</th>
+                        <th className="hide-in-mobile">Available for A2</th>
+                        <th className="hide-in-mobile">Price</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -50,11 +50,11 @@ const Dashboard = () => {
                             <tr className="admin-bikeRow">
                                 <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.brand}</Link></td>
                                 <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.name}</Link></td>
-                                <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.type}</Link></td>
-                                <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.engine}cc</Link></td>
-                                <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.horsepower}</Link></td>
-                                <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.A2? "Yes": "No"}</Link></td>
-                                <td><Link href={`/bike-${bike._id}`} target="_blank">{bike.price}€</Link></td>
+                                <td className="hide-in-mobile"><Link href={`/bike-${bike._id}`} target="_blank">{bike.type}</Link></td>
+                                <td className="hide-in-mobile"><Link href={`/bike-${bike._id}`} target="_blank">{bike.engine}cc</Link></td>
+                                <td className="hide-in-mobile"><Link href={`/bike-${bike._id}`} target="_blank">{bike.horsepower}</Link></td>
+                                <td className="hide-in-mobile"><Link href={`/bike-${bike._id}`} target="_blank">{bike.A2? "Yes": "No"}</Link></td>
+                                <td className="hide-in-mobile"><Link href={`/bike-${bike._id}`} target="_blank">{bike.price}€</Link></td>
                                 <td><a href="/admin/edit/{{this._id}}">EDIT</a></td>
                                 <td><a href="/admin/delete/{{this._id}}">X</a></td>
                             </tr>

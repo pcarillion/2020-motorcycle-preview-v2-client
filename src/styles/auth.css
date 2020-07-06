@@ -1,0 +1,150 @@
+.auth-div {
+    padding-top: 100px;
+    /* background-color: lightgray; */
+    background: linear-gradient(to bottom, lightgray, gray);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 70px;
+}
+
+.auth-div h2 {
+    color: white;
+}
+
+.auth-div form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: gray; */
+    height: 60vh;
+    width: 40vw;
+    z-index: 6;
+    /* box-shadow: 0px 0px 25px 24px rgba(0,0,0,0.16); */
+}
+
+.auth-div label, .auth-div p{
+    color: white;
+}
+
+.inputs {
+    width: 80%; 
+    
+}
+
+.text-input {
+    width: 100%;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    letter-spacing: 0.08rem;
+    border: none;
+    color: white;
+}
+
+.text-input:focus {
+    outline: none;
+}
+
+.text-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  .text-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  .text-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+  }
+
+.text-input:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.text-input:nth-child(2) {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.auth-div button {
+    text-transform: uppercase;
+    color: white;
+    width: 80%;
+    height: 2rem;
+    border: 0.5px white solid;
+    background-color: transparent;
+    background: rgba(white, 0);
+    line-height: 1.4;
+    cursor: pointer;
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline: 1px solid;
+    outline-color: rgba(255, 255, 255, .5);
+    outline-offset: 0px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.auth-div button:hover {
+    background: rgba(white, 1);
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+}
+
+.gear-svg {
+    position: absolute;
+    top: 5vh;
+    left: calc(50vw - 45vh);
+    width: 90vh;
+    height: 90vh;
+    opacity: 0.2;
+    z-index: 5;
+}
+
+
+
+.span-onclick {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* greeting page */
+
+.greeting-div{
+    background-color: lightgray;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting-div > div {
+    width: 200px;
+    padding-top: 120px;
+    z-index: 6;
+}
+
+.greeting-div p {
+    
+    text-align: center;
+    font-weight: bold;
+}
+
+.greeting-div a  {
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+}

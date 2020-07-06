@@ -70,3 +70,21 @@
     height: 40px;
     padding: 5px;
 }
+
+
+@media screen and (max-width: 650px) {
+    .hide-in-mobile{
+        display: none;
+    }
+
+    .adminTable {
+        width: 95vw
+    }
+
+    .tableTitle th {
+        min-width: 50px;
+        /* max-width: 50px; */
+        padding: 20px 5px;
+    }
+
+}
