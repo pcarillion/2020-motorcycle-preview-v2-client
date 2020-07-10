@@ -143,14 +143,12 @@ export default function Collection() {
         a.brand.localeCompare(b.brand)
       );
       setFilteredBikes(sorted);
-      // filteredBikes.sort((a, b) => a.brand.localeCompare(b.brand))
     }
     if (e.target.name === "type-sort") {
       sorted = [...filteredBikes].sort((a, b) =>
         a.brand.localeCompare(b.brand)
       );
       setFilteredBikes(sorted);
-      // filteredBikes.sort((a, b) => a.type.localeCompare(b.type))
     }
     if (e.target.name === "engine-sort") {
       setFilteredBikes(filteredBikes.sort((a, b) => a.engine - b.engine));
