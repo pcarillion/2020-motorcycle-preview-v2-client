@@ -8,15 +8,18 @@ export default function NavCollection({
   clbkBrand,
   clbkType,
   clbkEngine,
-  clbkSort,
   clbkA2,
+  clbkSort,
+  // clbkFilter,
 }) {
+
   return (
     <div className="nav-with-filters">
       <form className="collection-filters">
         {/* BRAND FILTER */}
-        <label htmlFor="brand">Brand </label>
-        <select name="brand" onChange={clbkBrand}>
+        <label htmlFor="brandFilter">Brand </label>
+        <select name="brandFilter" onChange={clbkBrand}>
+        {/* <select name="brandFilter"> */}
           <option selected value="all">
             All brands
           </option>
@@ -28,8 +31,9 @@ export default function NavCollection({
         </select>
 
         {/* TYPE FILTER */}
-        <label htmlFor="type">Type</label>
-        <select name="type" onChange={clbkType}>
+        <label htmlFor="typeFilter">Type</label>
+        <select name="typeFilter" onChange={clbkType}>
+        {/* <select name="typeFilter"> */}
           <option selected value="all">
             All types
           </option>
@@ -41,22 +45,19 @@ export default function NavCollection({
         </select>
 
         {/* ENGINE FILTER */}
-        <label htmlFor="engine">Engine (cc) </label>
+        <label htmlFor="engineFilter">Engine (cc) </label>
         <input
           type="number"
-          name="engine"
+          name="engineFilter"
           step="100"
           defaultValue={engine}
           onChange={clbkEngine}
         />
 
         {/* a2 FILTER */}
-        <label htmlFor="a2">A2 </label>
-        <input
-          type="checkbox"
-          name="a2"
-          onChange={clbkA2}
-        />
+        <label htmlFor="A2Filter">A2 </label>
+        <input type="checkbox" name="a2" onChange={clbkA2} />
+        {/* <input type="checkbox" name="A2Filter" /> */}
       </form>
 
       {/* SORTING */}

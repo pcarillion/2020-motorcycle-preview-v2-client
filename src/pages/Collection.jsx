@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavCollection from "../components/NavCollection";
+import BannerTitle from "../components/TitleBanner"
 import apiHandler from "../api/APIHandler";
 import "../styles/collection.css";
 import BikeCollection from "../components/BikeCollection";
@@ -158,6 +159,7 @@ export default function Collection() {
 
   return (
     <div className="collection-page">
+    <BannerTitle title="2020 collection" />
       <NavCollection
         brands={brands}
         types={types}
@@ -168,7 +170,6 @@ export default function Collection() {
         clbkA2={handleA2Change}
         clbkSort={handleSortChange}
       />
-      <h1>Collection page</h1>
       <BikeCollection bikes={filteredBikes} />
     </div>
   );

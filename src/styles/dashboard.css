@@ -1,90 +1,90 @@
 .dashboard-div {
-    background-color: lightgray;
-    padding-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .dashboard-div a {
-    color: black
+  color: black;
 }
 
 .dashboard {
-    margin: 100px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .admin-createBtn {
-    width: 100px;
-    border: 1px solid black;
-    /* border-radius: 10%/50%; */
-    margin-bottom: 30px;
-    font-size: 0.9rem;
-    background-color: white;
+  width: 100px;
+  border: 1px solid black;
+  /* border-radius: 10%/50%; */
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  background-color: white;
 }
 
 .admin-createBtn:hover {
-    background-color: rgb(245, 37, 31);
-    cursor: pointer;
-    color: white;
-    border:rgb(245, 37, 31) 1px solid;
+  background-color: rgb(245, 37, 31);
+  cursor: pointer;
+  color: white;
+  border: rgb(245, 37, 31) 1px solid;
 }
 
 /* ADMIN TABLE */
 .adminTable {
-    border: 1px solid black;
-    font-weight: bold;
-    margin: 0 auto;
-    text-align: center;
-    border-collapse: collapse;
-    margin: 50px 0;
+  border: 1px solid black;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  border-collapse: collapse;
+  margin: 50px 0;
 }
 
 .tableTitle {
-    text-transform: uppercase;
-    background-color: black;
-    color: white;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
 }
 
 .tableTitle th {
-    min-width: 110px;
-    max-width: 205px;
-    padding: 5px;
+  min-width: 110px;
+  max-width: 205px;
+  padding: 5px;
 }
 
 .admin-bikeRow:hover {
-    background-color: #f5251f;
-    border: rgb(245, 37, 31) 1px ;
+  background-color: #f5251f;
+  border: rgb(245, 37, 31) 1px;
 }
 
 .admin-bikeRow:hover a {
-    cursor: pointer;
-    color: white;
+  cursor: pointer;
+  color: white;
 }
 
 .adminTable tr {
-    height: 40px;
-    padding: 5px;
+  height: 40px;
+  padding: 5px;
 }
 
-
 @media screen and (max-width: 650px) {
-    .hide-in-mobile{
-        display: none;
-    }
+  .hide-in-mobile {
+    display: none;
+  }
 
-    .adminTable {
-        width: 95vw
-    }
+  .adminTable {
+    width: 95vw;
+  }
 
-    .tableTitle th {
-        min-width: 50px;
-        /* max-width: 50px; */
-        padding: 20px 5px;
-    }
-
+  .tableTitle th {
+    min-width: 50px;
+    /* max-width: 50px; */
+    padding: 20px 5px;
+  }
 }

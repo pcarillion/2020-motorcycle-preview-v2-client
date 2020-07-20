@@ -1,8 +1,14 @@
 .nav-with-filters {
-  border: 3px solid black;
+  margin: 20px 20px 0 20px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+}
+
+.nav-with-filters:hover {
+  box-shadow: 2px 2px 5px darkgray;
 }
 
 .collection-filters,
@@ -33,7 +39,7 @@
 .nav-with-filters select:hover,
 .nav-with-filters button:hover {
     border: 1px solid crimson;
-    box-shadow: 3px 3px 5px #ccc;
+    box-shadow: 2px 2px 5px #eee;
     font-weight: bold;
     outline: none;
 }

@@ -11,13 +11,17 @@ export default function BikeCollection({ bikes }) {
             <img src={b.image} alt={b.name} />
           </div>
           <div className="bike-infos">
-            <h2>
-              {b.brand} {b.name}
-            </h2>
+            <Link to={`/bike-${b._id}`} className="see-more" id={b._id}>
+              <h2>
+                {b.brand} {b.name}
+              </h2>
+            </Link>
             <h3>
               {b.engine}cc {b.type}
+              <br />
+              {b.horsepower} HP
             </h3>
-            <p>{b.price}€</p>
+            <h4>{b.price}€</h4>
             <Link to={`/bike-${b._id}`} className="see-more" id={b._id}>
               See details
             </Link>

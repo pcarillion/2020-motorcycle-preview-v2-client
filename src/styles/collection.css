@@ -1,6 +1,7 @@
 .collection-page {
   position: absolute;
   top: 70px;
+  background-color: lightgray;
 }
 
 .all-bikes-container {
@@ -11,13 +12,18 @@
 .bike-container {
   display: flex;
   justify-content: space-between;
-  border: 1px solid #333;
-  margin: 10px 0;
+  margin: 20px 0;
+  box-shadow: 3px 3px 5px darkgray;
 }
 
 .bike-container:nth-child(odd) {
-  background-color: #ee2400;
+  /* background-color: #ee2400; */
+  background-image: linear-gradient(to bottom, red, #c00);
   color: white;
+}
+
+.bike-container:nth-child(even) {
+  background-color: white;
 }
 
 .bike-photo {

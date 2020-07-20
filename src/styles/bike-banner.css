@@ -1,0 +1,19 @@
+.bike-banner {
+  height: 150px;
+  width: 100%;
+  background-image: url("https://www.desktopbackground.org/p/2014/07/06/789239_bikes-and-motorcycles-archives-page-6-of-6-hd-wallpapers_1920x1200_h.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 100px;
+}
+
+.bike-banner-title {
+  font-size: 3rem;
+  color: white;
+  font-family: "Space Mono", "Courier New", Courier, monospace;
+  text-transform: uppercase;
+}
